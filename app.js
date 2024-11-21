@@ -11,5 +11,5 @@ app.set("views", "./views");
 app.use(express.static('public'));
 
 app.listen(PORT, ()=>{
-    console.log(`Connected to port ${port}`);
+    console.log(`Connected to port ${PORT}`);
 });
