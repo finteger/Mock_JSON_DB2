@@ -35,17 +35,40 @@
 
                 <input type="email" id="new_email" name="new_email" placeholder="New Email:" />
 
-                <button type="submit" onclick="">Update User</button>
+                <button type="submit" onclick="updateUser()">Update User</button>
             </form>
 
             <form id="deleteUserForm" method="POST" action="/users/:id/delete">
                 <h4>Delete User Form (POST/Delete Method)</h4>
                 <input type="number" id="delete_id" name="id" placeholder="User ID" required />
-                <button type="submit" onclick="">Delete User</button>
+                <button type="submit" onclick="deleteUser()">Delete User</button>
             </form>
 
         </div>
     </body>
 
+    <script>
+        function updateUser(){
+            //Edit user form
+            var editForm = document.getElementById("editUserForm");
+            //The actual input value from the edit_id input
+            var id = document.getElementById("edit_id").value;
+            //change editForm attribute (action) to send id back to server
+            editForm.action = "/users/" + id + "/update";
+            //we submit the form
+            editForm.submit();
+        }
+
+        function deleteUser(){
+            //Grab the delete user form
+            var deleteForm = document.getElementById("deleteUserForm");
+            //Grabbing the input value from the id input
+            var id = document.getElementById("delete_id").value;
+            //change the deleteUser attribute "action" to include the id
+            deleteForm.action = "/users/" + id + "/delete";
+            //Submit the form
+            deleteForm.submit();
+        }
+    </script>
 
 </html>
