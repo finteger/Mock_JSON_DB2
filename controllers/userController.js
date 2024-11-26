@@ -5,7 +5,6 @@ const {readData, writeData} = require('../utils/file');
 //function to create user
 async function createUser(req, res){
     try {
-      console.log(req.body);
        
       //read file contents  
       const data = await readData();
