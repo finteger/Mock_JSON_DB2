@@ -16,6 +16,8 @@ router.get('/home', (req, res) =>{
 //define a route that adds a user
 router.post("/users", userController.createUser);
 
+//define a route that updates a user
+router.post("/users/:id/update", userController.updateUser);
 
 //exports the router object 
 module.exports = router;
