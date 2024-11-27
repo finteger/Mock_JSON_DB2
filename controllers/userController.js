@@ -70,9 +70,24 @@ async function updateUser(req, res){
 //function to delete user
 async function deleteUser(req, res){
     try {
-        
+         //fetch the data from database.json
+         const data = await readData();
+         //function to find user by id
+         const user = data.users.find(user => user.id === parseInt(req.params.id));
+
+         if(user){
+          //splice (start, itemCount to delete)
+           data.users.splice(user, 1);
+           await writeData(data);
+
+           res.status(200).json("User successfully deleted");
+
+         } else {
+          res.status(404).json('User not found.');
+         }
+         
     } catch (error) {
-        
+      res.status(500).json('Internal Server Error');
     }
 } 
 

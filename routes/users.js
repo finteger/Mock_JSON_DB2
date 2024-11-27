@@ -19,5 +19,8 @@ router.post("/users", userController.createUser);
 //define a route that updates a user
 router.post("/users/:id/update", userController.updateUser);
 
+//define a route to delete user
+router.post("/users/:id/delete", userController.deleteUser);
+
 //exports the router object 
 module.exports = router;
